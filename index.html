@@ -8,12 +8,12 @@
     <script defer src="movielist.js"></script>
     <script defer src="script.js"></script>
   </head>
-  <body>
+  <body onclick="handleOnChangeEvent(event)">
     <header>
       <h1>Winc Film finder</h1>
     </header>
     <nav>
-      <form class="form">
+      <form name="form">
         <label for="new-movies"
           ><input
             id="new-movies"
@@ -29,7 +29,7 @@
             class="radio-buttons"
             type="radio"
             name="film-type"
-            value="avanger"
+            value="avenger"
           />Avenger movies</label
         >
         <label for="x-men"
