@@ -81,27 +81,9 @@ function filterMovies(wordInMovie){
 console.log(array)
 
 
-
-
-
-
-
-//filterMovies("Princess");
-/* let result = [];
-let filter = "title";
-let keyword = "Princess";
-
-for(i=0; i<movies.length; i++) {
-    for(filter in movies[i]) {
-        if(movies[i][filter].indexOf(keyword)!=-1){
-            result.push(movies[i]);
-        }
-    }
-}
-console.log(result); */
-
-
-
-
-
-
+/* Berakom ide a leirast ahhoz a reszhez:
+ - As the last step, you want to call this filterMovies, the function addMoviestoDom(), 
+ but now with your filtered movies list, instead of all the movies list. : Ez van arra hogy csak a filtered filmek jelenljenek meg.
+ - Ezt meg a eventhez irtak(lehet en hagytam ki valamit) : Use the change event. 
+ Then there will be an event when the circle of the radio button is checked or unchecked.
+*/
