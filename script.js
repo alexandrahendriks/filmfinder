@@ -1,5 +1,5 @@
 //Displaying all the movies on the screen as posters
-function addMoviesToDom(movies) {
+ function addMoviesToDom(movies) {
     let myUl = document.getElementById("all-movies");
     let moviesLiArray = [];
     let liArray = [];
@@ -20,60 +20,88 @@ function addMoviesToDom(movies) {
 
     });
 }
-addMoviesToDom(movies); 
+addMoviesToDom(movies);  
 
-const allRadioButtons = document.querySelectorAll('input[name="film-type"]');
-console.log(allRadioButtons);
 
-function addEvenentListeners(buttons){
-     for(i=0; i < buttons.length; i++) {
-        buttons[i].onchange = function() {
-            console.log(this.value);
-            if (buttons != null) {
-                //console.log(" radio button checked");
-            }
-        }
-    } 
+// This function will be activated when the content has been loaded, and add an event to each radio button.
+function addEventListeners(){
+    const allRadioButtons = document.querySelectorAll('input[name="film-type"]');
+    allRadioButtons.forEach(element => {
+        element.addEventListener('change', () => {
+            if (element.checked) {
+                console.log(element.value + " Button clicked")
+            } 
+        })
+    })
 }
-addEvenentListeners(allRadioButtons);
+addEventListeners()
 
-
+//Function for each radio button 
 function handleOnChangeEvent(event) {
     switch (event.target.value) {
         case "new-movies":
             console.log("New movies");
+            filterMovies("2014");
             break;
         case "avenger":
             console.log("Avenger movies");
-            
+            filterMovies("Avenger");
             break;
         case "x-men":
             console.log("X-men movies");
+            filterMovies("X-Men");
             break;
         case "princess":
             console.log("Princess movies");
-            filterMovies(event.target.value);
+            filterMovies("Princess");
             break;
         case "batman":
             console.log("Batman movies");
+            filterMovies("Batman");
             break;
     }
 }
 
-function filterMovies(word){
-
-    movies.filter((movie) => {
-        if (movie.title("princess") === true) {
-            console.log(movie.title)
-        }    
-})
+//Function for filtering the movies
+let array = [];
+function filterMovies(wordInMovie){
+    let result = [];
+    let filter = "title";
+    for(i=0; i<movies.length; i++) {
+        for(filter in movies[i]) {
+            if(movies[i][filter].indexOf(wordInMovie)!=-1){
+                result.push(movies[i]);
+            } 
+        }
+    }
+    console.log(result)
+    array.push(result)
+    addMoviesToDom(result)
 }
-filterMovies(movies)
+console.log(array)
 
 
-const filteredItems = items.filter((item) => {
-    return item.price <= 100
-})
+
+
+
+
+
+//filterMovies("Princess");
+/* let result = [];
+let filter = "title";
+let keyword = "Princess";
+
+for(i=0; i<movies.length; i++) {
+    for(filter in movies[i]) {
+        if(movies[i][filter].indexOf(keyword)!=-1){
+            result.push(movies[i]);
+        }
+    }
+}
+console.log(result); */
+
+
+
 
 
 
