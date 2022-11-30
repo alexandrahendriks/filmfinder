@@ -80,9 +80,6 @@ function filterMovies(wordInMovie){
                 result.push(movies[i]);
             } 
         }
-    if(result.includes(wordInMovie)){
-        console.log("hello")
-    }
     }
     console.log(result)
     addMoviesToDom(result)
