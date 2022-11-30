@@ -13,7 +13,7 @@
       <h1>Winc Film finder</h1>
     </header>
     <nav>
-      <form name="form">
+      <form name="form" class="form">
         <label for="new-movies"
           ><input
             id="new-movies"
@@ -21,6 +21,7 @@
             type="radio"
             name="film-type"
             value="new-movies"
+            autocomplete="off"
           />Latest movies, 2014 or newer</label
         >
         <label for="avenger"
@@ -30,6 +31,7 @@
             type="radio"
             name="film-type"
             value="avenger"
+            autocomplete="off"
           />Avenger movies</label
         >
         <label for="x-men"
@@ -39,6 +41,7 @@
             type="radio"
             name="film-type"
             value="x-men"
+            autocomplete="off"
           />X-Men movies</label
         >
         <label for="princess"
@@ -48,6 +51,7 @@
             type="radio"
             name="film-type"
             value="princess"
+            autocomplete="off"
           />Princess movies</label
         >
         <label for="batman"
@@ -57,15 +61,13 @@
             type="radio"
             name="film-type"
             value="batman"
+            autocomplete="off"
           />Batman movies</label
         >
-        <br />
-        <input type="text" id="search" class="search" placeholder="Search..." />
       </form>
     </nav>
-    <div class="flex">
+    <div id="flex">
       <ul id="all-movies"></ul>
     </div>
-    <!--<footer><p>&#169 All rights reserved</p></footer>-->
   </body>
 </html>

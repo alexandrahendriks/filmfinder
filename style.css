@@ -8,7 +8,9 @@ body {
     background-color: rgb(26, 25, 25);
     color: white;
     font: 16px normal Arial, helvetica;
+    margin: 10px 5px;
 }
+
 
 h1 {
     display: flex;
@@ -16,10 +18,12 @@ h1 {
     margin-top: 20px;
     margin-bottom: 40px;
 }
-
 .form {
-    text-align: center;
-    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
 }
 
 .radio-buttons {
@@ -34,6 +38,6 @@ li {
 #all-movies {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: flex-start;
 }
-
