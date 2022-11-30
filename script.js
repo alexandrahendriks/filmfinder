@@ -76,12 +76,11 @@ function filterMovies(wordInMovie){
     let filter = "title";
     for(i=0; i<movies.length; i++) {
         for(filter in movies[i]) {
-            if(movies[i][filter].indexOf(wordInMovie)!=-1){
+            if(movies[i][filter].includes(wordInMovie)){
                 result.push(movies[i]);
             } 
         }
     }
-    console.log(result)
     addMoviesToDom(result)
 }
 
@@ -96,7 +95,6 @@ function filterLatestMovies () {
             result.push(movies[i]) 
             }
         }
-    let
 }
 //console.log(result);
 addMoviesToDom(result);
