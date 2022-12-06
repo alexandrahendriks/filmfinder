@@ -1,78 +1,74 @@
 //Displaying all the movies on the screen as posters
  function addMoviesToDom(movies) {
-    let myUl = document.getElementById("all-movies");
-    let moviesLiArray = [];
-    let liArray = [];
+    const myUl = document.getElementById("all-movies");
+    const moviesLiArray = [];
+    const liArray = [];
     //console.log(moviesLiArray);
     //console.log(liArray);
     movies.map((movie) => {
-        let moviesLi =('<li>' + [movie.title, ' ' +  movie.year, ' ' + movie.imdbID, ' ' + movie.type, ' ' + movie.poster] + '</li>');
+        const moviesLi =('<li>' + [movie.title, ' ' +  movie.year, ' ' + movie.imdbID, ' ' + movie.type, ' ' + movie.poster] + '</li>');
         moviesLiArray.push(moviesLi)
-        let li = document.createElement('li');
+        const li = document.createElement('li');
         liArray.push(li.innerHTML = li.innerHTML + String(movie.poster));
     })
     liArray.forEach((element) => {  //Adding lis to the DOM
-        let li = document.createElement('li');
-        let a = document.createElement('a');
-        let img = document.createElement("img");
-        a.setAttribute("href", element)
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        const img = document.createElement("img");
+        a.setAttribute("target", "_blank", "href", element, )
         img.setAttribute("src", element);
         myUl.appendChild(li);
         li.appendChild(a).appendChild(img);
     })
     creatLink(movies); 
+    
 }
 addMoviesToDom(movies);
 
 
-// Eventlistener function  --- Question to the teacher about this: My functions are working even withouth this function.
-// Why did i need this? Did I miss something?
+// Eventlistener function
 function addEventListeners(){
     const allRadioButtons = document.querySelectorAll('input[name="film-type"]');
     allRadioButtons.forEach(element => {
         element.addEventListener('change', () => {
             if (element.checked) {
-                //console.log(element.value + " Button clicked")
+                console.log(element.value + " Button clicked")
+                switch (element.value) {
+                    case "new-movies":
+                        //console.log("New movies");
+                        removeLis ();
+                        filterLatestMovies();
+                        break;
+                    case "avenger":
+                        //console.log("Avenger movies");
+                        removeLis ()
+                        filterMovies("Avenger");
+                        break;
+                    case "x-men":
+                        //console.log("X-men movies");
+                        removeLis ()
+                        filterMovies("X-Men");
+                        break;
+                    case "princess":
+                        //console.log("Princess movies");
+                        removeLis ()
+                        filterMovies("Princess");
+                        break;
+                    case "batman":
+                        //console.log("Batman movies");
+                        removeLis ()
+                        filterMovies("Batman");
+                        break;
+                }
             }  
         })
     })
 }
 addEventListeners();
  
-//Function for each radio button
-function handleOnChangeEvent(event) {
-    switch (event.target.value) {
-        case "new-movies":
-            //console.log("New movies");
-            removeLis ();
-            filterLatestMovies();
-            break;
-        case "avenger":
-            //console.log("Avenger movies");
-            removeLis ()
-            filterMovies("Avenger");
-            break;
-        case "x-men":
-            //console.log("X-men movies");
-            removeLis ()
-            filterMovies("X-Men");
-            break;
-        case "princess":
-            //console.log("Princess movies");
-            removeLis ()
-            filterMovies("Princess");
-            break;
-        case "batman":
-            //console.log("Batman movies");
-            removeLis ()
-            filterMovies("Batman");
-            break;
-    }
-}
-
 //Function for filtering the movies
 function filterMovies(wordInMovie){
-    let result = [];
+    const result = [];
     let filter = "title";
     for(i=0; i<movies.length; i++) {
         for(filter in movies[i]) {
@@ -86,7 +82,7 @@ function filterMovies(wordInMovie){
 
 //Function to filter latest movies
 function filterLatestMovies () {
-    let result = [];
+    const result = [];
     let filter = "year";
      for(i=0; i<movies.length; i++) {
         for(filter in movies[i]){
@@ -102,20 +98,20 @@ addMoviesToDom(result);
 
 //Remove li from the DOM
 function removeLis () {
-    let parent = document.getElementById("flex").getElementsByTagName("ul")[0];
+    const parent = document.getElementById("flex").getElementsByTagName("ul")[0];
     parent.innerHTML = "";
 }
 
 //Creating links to the imbd
 function creatLink (movies) {
-    let result = [];
+    const result = [];
     movies.map((movie) => { 
         let id = movie.imdbID;
         result.push(id);
     })
-    let linkArray = [];
+    const linkArray = [];
     result.forEach((element) => {   //Making link out of the imbdID
-    let href = "https://www.imdb.com/title/"+element+"/";
+    const href = "https://www.imdb.com/title/"+element+"/";
     linkArray.push(href); 
 })
     //console.log(result)
@@ -128,5 +124,4 @@ function creatLink (movies) {
     }
     changeA(linkArray);
 }
-
 
