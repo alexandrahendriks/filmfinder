@@ -1,10 +1,8 @@
 //Displaying all the movies on the screen as posters
- function addMoviesToDom(movies) {
+function addMoviesToDom(movies) {
     const myUl = document.getElementById("all-movies");
     const moviesLiArray = [];
     const liArray = [];
-    //console.log(moviesLiArray);
-    //console.log(liArray);
     movies.map((movie) => {
         const moviesLi =('<li>' + [movie.title, ' ' +  movie.year, ' ' + movie.imdbID, ' ' + movie.type, ' ' + movie.poster] + '</li>');
         moviesLiArray.push(moviesLi)
@@ -25,7 +23,6 @@
 }
 addMoviesToDom(movies);
 
-
 // Eventlistener function
 function addEventListeners(){
     const allRadioButtons = document.querySelectorAll('input[name="film-type"]');
@@ -35,27 +32,22 @@ function addEventListeners(){
                 console.log(element.value + " Button clicked")
                 switch (element.value) {
                     case "new-movies":
-                        //console.log("New movies");
                         removeLis ();
                         filterLatestMovies();
                         break;
                     case "avenger":
-                        //console.log("Avenger movies");
                         removeLis ()
                         filterMovies("Avenger");
                         break;
                     case "x-men":
-                        //console.log("X-men movies");
                         removeLis ()
                         filterMovies("X-Men");
                         break;
                     case "princess":
-                        //console.log("Princess movies");
                         removeLis ()
                         filterMovies("Princess");
                         break;
                     case "batman":
-                        //console.log("Batman movies");
                         removeLis ()
                         filterMovies("Batman");
                         break;
@@ -87,12 +79,10 @@ function filterLatestMovies () {
      for(i=0; i<movies.length; i++) {
         for(filter in movies[i]){
         if (movies[i][filter] >= 2014) {
-            //console.log(movies[i]);
             result.push(movies[i]) 
             }
         }
 }
-//console.log(result);
 addMoviesToDom(result);
 }
 
@@ -114,8 +104,6 @@ function creatLink (movies) {
     const href = "https://www.imdb.com/title/"+element+"/";
     linkArray.push(href); 
 })
-    //console.log(result)
-    //console.log(linkArray)
     const changeA = function (arr) {    //Changes all href for a in DOM
         const a = document.getElementsByTagName("a");
         arr.forEach((element, index) => {
@@ -124,4 +112,3 @@ function creatLink (movies) {
     }
     changeA(linkArray);
 }
-
